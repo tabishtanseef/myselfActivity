@@ -102,6 +102,9 @@ p{
 	border:1px solid green;
 	border-radius:10px;
 }
+.parts{
+	margin-top:30px;
+}
 </style>
 </head>
 <body>
@@ -195,9 +198,26 @@ p{
 				<div class="row content">
 					<div class="col-md-12">
 						<center><h2>Listen and touch</h2></center>
-						<p><img src="images/s.png" class="speaker" id="3" onclick="play(this.id)"> &nbsp; &nbsp; 
-						Friends, now you sing the song looking at the actions.</p>
-						<iframe src="https://www.youtube.com/embed/YN3Ei2aaXps?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
+						<p><img src="images/s.png" class="speaker" id="4" onclick="play(this.id)"> &nbsp; &nbsp; 
+						Listen carefully and click on correct body part.</p>
+					</div>
+					<div class="col-md-4">
+						<img src="images/lips.png" class="parts" id="lips" onclick="hit(this.id,5)">
+					</div>
+					<div class="col-md-4">
+						<img src="images/eye.png" class="parts" id="eye" onclick="hit(this.id,0)">
+					</div>
+					<div class="col-md-4">
+						<img src="images/feet.png" class="parts" id="feet" onclick="hit(this.id,3)">
+					</div>
+					<div class="col-md-4">
+						<img src="images/arm.png" class="parts" id="arm" onclick="hit(this.id,1)">
+					</div>
+					<div class="col-md-4">
+						<img src="images/hand.png" class="parts" id="hand" onclick="hit(this.id,2)">
+					</div>
+					<div class="col-md-4">
+						<img src="images/teeth.png" class="parts" id="teeth" onclick="hit(this.id,4)">
 					</div>
 				</div>
 			</div><!-- Slide 9 ended -->
@@ -235,20 +255,52 @@ p{
 
 <audio src="audio/well-done.mp3" id="s1"></audio>
 <audio src="audio/well-done.mp3" id="s2"></audio>
+<audio src="audio/well-done.mp3" id="s3"></audio>
+<audio src="audio/well-done.mp3" id="s4"></audio>
+
+
 <audio src="audio/well-done.mp3" id="s_girl"></audio>
 <audio src="audio/well-done.mp3" id="s_boy"></audio>
+
+<audio src="audio/well-done.mp3" id="eye"></audio>
+<audio src="audio/well-done.mp3" id="arm"></audio>
+<audio src="audio/well-done.mp3" id="hand"></audio>
+<audio src="audio/well-done.mp3" id="feet"></audio>
+<audio src="audio/well-done.mp3" id="teeth"></audio>
+<audio src="audio/well-done.mp3" id="lips"></audio>
 
 <audio src="audio/well-done.mp3" id="audio1"></audio>
 <audio src="audio/try-again.mp3" id="audio2"></audio>
 
 <script src="swiper/swiper.min.js"></script>
-</body>
+
 <script>
+var start =0;
+var well_done = document.getElementById('audio1');
+var try_again = document.getElementById('audio2');
+
+function hit(a,b){
+	if(start==b){
+		$('#'+a).css('border','2px solid green');
+		well_done.play();
+		if(b!=5){
+			setTimeout(function(){
+				play = document.getElementById('audio2');
+				play.play();
+			},2000);
+			start++;
+		}
+	}else{
+		$('#'+a).css('border','2px solid red');
+		try_again.play();
+	}
+}
 
 function play(a){
 	var audio = document.getElementById('s'+a);
 	audio.play();
 }
+
 function boyORgirl(a){
 	if(a=='girl'){
 		var audio = document.getElementById('s_'+a);
@@ -258,17 +310,18 @@ function boyORgirl(a){
 	$('.'+a).removeClass('hidden');
 	audio.play();
 }
+
 var swiper = new Swiper(".mySwiper", {
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-        },
-        mousewheel: true,
-        keyboard: true,
-      });
+	navigation: {
+	  nextEl: ".swiper-button-next",
+	  prevEl: ".swiper-button-prev",
+	},
+	pagination: {
+	  el: ".swiper-pagination",
+	},
+	mousewheel: true,
+	keyboard: true,
+});
 
 
 
@@ -353,5 +406,6 @@ function bo(d){
 }
 
 </script>
+</body>
 </html>
 
