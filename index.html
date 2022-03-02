@@ -6,12 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="swiper/swiper.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/trontastic/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Squada+One&display=swap" rel="stylesheet">
+
+
+
+
 <style>
 body, html {
   height: 100%;
@@ -105,7 +114,163 @@ p{
 .parts{
 	margin-top:30px;
 }
+#container{
+	width:100%;
+	height:100%;
+	border: 2px solid;
+	border-radius:20px;
+	margin: 10px auto;
+	padding: 10px !important;
+}
+#pieceContainer{
+	width:452px;
+	height:452px;
+	border:1px solid;
+	
+	text-align:center;
+	font-size:30px;
+	line-height:200px;
+	position:relative;
+}
+#puzzleContainer{
+	width:452px;
+	height:452px;
+	float:center;
+	border: 1px solid;
+	text-align:center;
+	font-size:30px;
+}
+ul{
+	list-style-type:none;
+	text-align:center;
+}
+ul button{
+	width:100px;
+	border:1px solid;
+	font-size:20px;
+	border-radius:5px;
+	padding:5px;
+	margin-top:10px;
+}
+#btnStart, #btnReset{
+	margin-top:10px;
+	font-size:20px;
+}
+.piece{
+	width:150px;
+	height:150px;
+	border:1px solid;
+	float:left;
+	background-size:cover;
+	z-index:10;
+}
 </style>
+<script>
+	$(document).ready(function(){
+		var pieces = createPieces(true);
+		$('#puzzleContainer').html(pieces);
+		$('#btnStart').click(function(){
+			var pieces = $("#puzzleContainer div");
+			pieces.each(function(){
+				var leftPosition = Math.floor(Math.random()*290) + "px";
+				var topPosition = Math.floor(Math.random()*290) + "px";
+				$(this).addClass("draggablePiece").css({
+					position:"absolute",
+					left:leftPosition,
+					top:topPosition
+				})
+				$('#pieceContainer').append($(this));
+			});
+			var emptyString = createPieces(false);
+			
+			$('#puzzleContainer').html(emptyString);
+			$(this).hide();
+			$('#btnReset').show();
+			implementLogic();
+		});
+		
+		$('#btnReset').click(function(){
+			var newPieces = createPieces(true);
+			$('#puzzleContainer').html(newPieces);
+			$(this).hide();
+			$('#btnStart').show();
+			implementLogic();
+			$('#pieceContainer').empty();
+		});
+		
+		function createPieces(withImage){
+			var rows=3, columns=3;
+			var pieces='';
+			
+			t=1;
+			for(var i=0,order=0; i<rows;i++){
+				for(var j=0; j<columns;j++,order++){
+				
+					if(withImage){
+						image = 'images/p'+t+'.jpg';
+						pieces+="<div class='piece' data-order="+order+" style='background-image:url("+image+");' ></div>";
+						t++;
+					}
+					else{
+						pieces+="<div class='piece droppableSpace' style='background-image:none;' ></div>";
+					}
+				}
+			}
+			return pieces;
+		}
+		
+		
+		
+		function checkIfPuzzleSolved(){
+			if($('#puzzleContainer .droppedPiece').length!=9){
+				return false;
+			}
+			for(var k=0; k<9; k++){
+				var item = $("#puzzleContainer .droppedPiece:eq("+k+")");
+				var order = item.data("order");
+				console.log("K is "+k);
+				console.log("order is "+order);
+				if(k!=order){
+					try_again.play();
+					$('#pieceContainer').text("No! Try Again!!");
+					return false;
+				}
+			}
+			$('#pieceContainer').text("Welldone!! You are a Genius!!");
+			well_done.play();
+			return true;
+		}
+		function implementLogic(){
+			$('.draggablePiece').draggable({
+				revert:"invalid",
+				start:function(){
+					if($(this).hasClass("droppedPiece"))
+					{
+						$(this).removeClass("droppedPiece");
+						$(this).parent().removeClass("piecePresent")
+					}
+				}
+			});
+			$('.droppableSpace').droppable({
+				hoverClass:"ui-state-highlight",
+				accept:function(){
+					return !$(this).hasClass("piecePresent")
+				},
+				drop:function(event,ui){
+					var draggableElement = ui.draggable;
+					var droppedOn = $(this);droppedOn.addClass("piecePresent");
+					$(draggableElement).addClass("droppedPiece").css({
+					top:0,
+					left:0,
+					position:"relative"
+					}).appendTo(droppedOn);
+					checkIfPuzzleSolved();
+				}
+			});
+		}
+	});
+
+</script>
 </head>
 <body>
 <div class="bgimg-1 main">
@@ -234,6 +399,22 @@ p{
 					<div class="col-md-12">
 						<center><h2>Complete the body parts puzzle</h2></center>
 					</div>
+					<div class="col-md-6"> 
+						<center>
+							<div id="pieceContainer">
+							</div>
+						</center>
+					</div>
+					<div class="col-md-6">
+						<center>
+							<div id="puzzleContainer">
+							</div>
+						</center>
+					</div>
+					<div class="col-md-12">
+						<button id="btnStart" class="btn btn-danger">Start</button>
+						<button id="btnReset" class="btn btn-info hidden">Reset</button>
+					</div>
 				</div>
 			</div><!-- Slide 11 ended -->
 			<div class="swiper-slide">
@@ -319,7 +500,8 @@ var swiper = new Swiper(".mySwiper", {
 	pagination: {
 	  el: ".swiper-pagination",
 	},
-	mousewheel: true,
+	allowTouchMove: false,
+	mousewheel: false,
 	keyboard: true,
 });
 
