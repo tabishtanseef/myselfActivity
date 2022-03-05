@@ -18,9 +18,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Squada+One&display=swap" rel="stylesheet">
 
-
-
-
 <style>
 body, html {
   height: 100%;
@@ -41,7 +38,7 @@ body, html {
 .container{
 	background:#fff;
 	width: 100%;
-	height: 80vh;
+	height: 80%;
 	border:3px solid #DD45C3;
 	border-radius:20px;
 }
@@ -56,7 +53,7 @@ body, html {
 	background:#fff;
 }
 .mySwiper{
-	margin-top:70px;
+	margin-top:20px;
 	overflow:hidden;
 }
 .hidden{
@@ -75,12 +72,12 @@ body, html {
 	padding:40px !important;
 }
 .girl1{
-	width:20%;
-	margin-top:50px;
+	width:15%;
+	margin-top:20px;
 } 
 .bg{
-	width:45%;
-	margin-top:50px;
+	width:35%;
+	margin-top:20px;
 }
 h2{
 	margin-top:10px;
@@ -90,11 +87,11 @@ h2{
 	font-weight:bold;
 	border-radius:20px;
 	margin-left:20px;
-	width:50%;
+	width:70%;
 	text-transform:uppercase
 }
 p{
-	margin-top:10px;
+	margin-top:20px;
 	font-size:24px;
 }
 .speaker{
@@ -102,14 +99,15 @@ p{
 }
 .box-iframe{
 	margin-top:20px; 
-	width:80%; 
-	height:500px;
+	width:70%; 
+	height:400px;
 }
 .box{
 	width:50px;
 	height:50px;
 	border:1px solid green;
 	border-radius:10px;
+	text-align:center;
 }
 .parts{
 	margin-top:30px;
@@ -126,7 +124,6 @@ p{
 	width:452px;
 	height:452px;
 	border:1px solid;
-	
 	text-align:center;
 	font-size:30px;
 	line-height:200px;
@@ -280,9 +277,9 @@ ul button{
 				<div class="row content">
 					<div class="col-md-12">
 						<center><h2>Introduction</h2></center>
-						<img src='images/s1i1.png' class="girl1">
 						<p><img src="images/s.png" class="speaker" id="1" onclick="play(this.id)"> &nbsp; &nbsp; 
 						Hello Friends! Let’s learn about the parts of the body!</p>
+						<img src='images/s1i1.png' class="girl1">
 					</div>
 				</div>
 			</div> <!-- Slide 1 ended -->
@@ -290,7 +287,7 @@ ul button{
 				<div class="row content">
 					<div class="col-md-12">
 						<center><h2>Boy and Girl</h2></center>
-						<iframe src="https://www.youtube.com/embed/YN3Ei2aaXps?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
+						<iframe src="https://www.youtube.com/embed/2IreTE5M32c?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
 					</div>
 				</div>
 			</div><!-- Slide 2 ended -->
@@ -305,13 +302,13 @@ ul button{
 					<div class="col-md-1"></div>
 					<div class="col-md-5">
 						<center>
-						<img src='images/s3i1.png' class="bg">
+						<img src='images/s3i1.png' class="bg" onclick="boyORgirl('girl')">
 						<div class="box" id="girl" onclick="boyORgirl(this.id)"><img src='images/tick.png' class="girl hidden"></div>
 						</center>
 					</div>
 					<div class="col-md-5">
 						<center>
-						<img src='images/s3i2.png' class="bg">
+						<img src='images/s3i2.png' class="bg" onclick="boyORgirl('boy')">
 						<div class="box" id="boy" onclick="boyORgirl(this.id)"><img src='images/tick.png' class="boy hidden"></div>
 						</center>
 					</div>
@@ -321,7 +318,7 @@ ul button{
 				<div class="row content">
 					<div class="col-md-12">
 						<center><h2>Parts of a body</h2></center>
-						<iframe src="https://www.youtube.com/embed/YN3Ei2aaXps?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
+						<iframe src="https://www.youtube.com/embed/WbHhD6kJOc4?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
 					</div>
 				</div>
 			</div><!-- Slide 4 ended -->
@@ -329,7 +326,7 @@ ul button{
 				<div class="row content">
 					<div class="col-md-12">
 						<center><h2>Parts of a body</h2></center>
-						<iframe src="https://www.youtube.com/embed/YN3Ei2aaXps?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
+						<iframe src="https://www.youtube.com/embed/2ptzBYsnJMY?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
 					</div>
 				</div>
 			</div><!-- Slide 5 ended -->
@@ -337,7 +334,7 @@ ul button{
 				<div class="row content">
 					<div class="col-md-12">
 						<center><h2>Let’s Listen: Here are My Fingers</h2></center>
-						<iframe src="https://www.youtube.com/embed/YN3Ei2aaXps?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
+						<iframe src="https://www.youtube.com/embed/8lGO60FtybU?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
 					</div>
 				</div>
 			</div><!-- Slide 6 ended -->
@@ -353,8 +350,6 @@ ul button{
 				<div class="row content">
 					<div class="col-md-12">
 						<center><h2>Let’s Sing : Here are My Fingers</h2></center>
-						<p><img src="images/s.png" class="speaker" id="3" onclick="play(this.id)"> &nbsp; &nbsp; 
-						Friends, now you sing the song looking at the actions.</p>
 						<iframe src="https://www.youtube.com/embed/YN3Ei2aaXps?rel=0" onclick="go(1)" scrolling="no" class="box-iframe"></iframe>
 					</div>
 				</div>
@@ -363,26 +358,26 @@ ul button{
 				<div class="row content">
 					<div class="col-md-12">
 						<center><h2>Listen and touch</h2></center>
-						<p><img src="images/s.png" class="speaker" id="4" onclick="play(this.id)"> &nbsp; &nbsp; 
+						<p><img src="images/s.png" class="speaker" id="3" onclick="play(this.id)"> &nbsp; &nbsp; 
 						Listen carefully and click on correct body part.</p>
 					</div>
 					<div class="col-md-4">
-						<img src="images/lips.png" class="parts" id="lips" onclick="hit(this.id,5)">
+						<img src="images/lips.png" class="parts" id="well" onclick="hit(this.id,5)">
 					</div>
 					<div class="col-md-4">
-						<img src="images/eye.png" class="parts" id="eye" onclick="hit(this.id,0)">
+						<img src="images/eye.png" class="parts" id="arm" onclick="hit(this.id,0)">
 					</div>
 					<div class="col-md-4">
-						<img src="images/feet.png" class="parts" id="feet" onclick="hit(this.id,3)">
+						<img src="images/feet.png" class="parts" id="teeth" onclick="hit(this.id,3)">
 					</div>
 					<div class="col-md-4">
-						<img src="images/arm.png" class="parts" id="arm" onclick="hit(this.id,1)">
+						<img src="images/arm.png" class="parts" id="hand" onclick="hit(this.id,1)">
 					</div>
 					<div class="col-md-4">
-						<img src="images/hand.png" class="parts" id="hand" onclick="hit(this.id,2)">
+						<img src="images/hand.png" class="parts" id="feet" onclick="hit(this.id,2)">
 					</div>
 					<div class="col-md-4">
-						<img src="images/teeth.png" class="parts" id="teeth" onclick="hit(this.id,4)">
+						<img src="images/teeth.png" class="parts" id="lips" onclick="hit(this.id,4)">
 					</div>
 				</div>
 			</div><!-- Slide 9 ended -->
@@ -418,10 +413,81 @@ ul button{
 				</div>
 			</div><!-- Slide 11 ended -->
 			<div class="swiper-slide">
-				<div class="row content">
-					<div class="col-md-12">
-						<center><h2>Count the body parts</h2></center>
+				<div class="main1">
+					<div class="row content">
+						<div class="col-md-12">
+							<center><h2>Count the body parts</h2></center>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-8">
+									<img src="images/1.png" class="parts" >
+								</div>
+								<div class="col-md-4" style="margin:auto;">
+									<input type="text" class="box" id="tab0" >
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-8">
+									<img src="images/2.png" class="parts" >
+								</div>
+								<div class="col-md-4" style="margin:auto;">
+									<input type="text" class="box" id="tab1" >
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-8">
+									<img src="images/3.png" class="parts" >
+								</div>
+								<div class="col-md-4" style="margin:auto;">
+									<input type="text" class="box" id="tab2" >
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-8">
+									<img src="images/4.png" class="parts" >
+								</div>
+								<div class="col-md-4" style="margin:auto;">
+									<input type="text" class="box" id="tab3" >
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-8">
+									<img src="images/eye.png" class="parts" >
+								</div>
+								<div class="col-md-4" style="margin:auto;">
+									<input type="text" class="box" id="tab4" >
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-8">
+									<img src="images/5.png" class="parts" >
+								</div>
+								<div class="col-md-4" style="margin:auto;">
+									<input type="text" class="box" id="tab5" >
+								</div>
+							</div>
+						</div>
 					</div>
+					<br><br>
+					<div class="row">
+						<div class="col-md-4"><center><img onclick="reset()" src="images/res2.png" onmouseover="this.src='images/res1.png'" onmouseout="this.src='images/res2.png'" style="margin-top:10px; width:50%;"></center></div>
+						<div class="col-md-4"><center><img id="submit" onclick="check()" src="images/sub2.png" onmouseover="this.src='images/sub1.png'" onmouseout="this.src='images/sub2.png'" style="margin-top:10px; width:50%;"></center></div>
+						<div class="col-md-4"><center><img id="sol" onclick="solve()" src="images/solu2.png" onmouseover="this.src='images/solu1.png'" onmouseout="this.src='images/solu2.png'" style="margin-top:10px; width:50%;"></center></div>
+					</div>
+				</div>
+				<div class="well hidden">
+					<center><img  width="100%" height="auto" src="images/Welldone.gif"></center>
 				</div>
 			</div><!-- Slide 12 ended -->
 		</div>
@@ -434,21 +500,21 @@ ul button{
 	<center><img src="images/Welldone.gif" id="welldone"><center>
 </div>
 
-<audio src="audio/well-done.mp3" id="s1"></audio>
-<audio src="audio/well-done.mp3" id="s2"></audio>
-<audio src="audio/well-done.mp3" id="s3"></audio>
+<audio src="audio/s1.mp3" id="s1"></audio>
+<audio src="audio/s2.mp3" id="s2"></audio>
+<audio src="audio/eye.mp3" id="s3"></audio>
 <audio src="audio/well-done.mp3" id="s4"></audio>
 
 
-<audio src="audio/well-done.mp3" id="s_girl"></audio>
-<audio src="audio/well-done.mp3" id="s_boy"></audio>
+<audio src="audio/s_girl.mp3" id="s_girl"></audio>
+<audio src="audio/s_boy.mp3" id="s_boy"></audio>
 
-<audio src="audio/well-done.mp3" id="eye"></audio>
-<audio src="audio/well-done.mp3" id="arm"></audio>
-<audio src="audio/well-done.mp3" id="hand"></audio>
-<audio src="audio/well-done.mp3" id="feet"></audio>
-<audio src="audio/well-done.mp3" id="teeth"></audio>
-<audio src="audio/well-done.mp3" id="lips"></audio>
+
+<audio src="audio/arm.mp3" id="arm1"></audio>
+<audio src="audio/hand.mp3" id="hand1"></audio>
+<audio src="audio/feet.mp3" id="feet1"></audio>
+<audio src="audio/teeth.mp3" id="teeth1"></audio>
+<audio src="audio/lips.mp3" id="lips1"></audio>
 
 <audio src="audio/well-done.mp3" id="audio1"></audio>
 <audio src="audio/try-again.mp3" id="audio2"></audio>
@@ -466,7 +532,9 @@ function hit(a,b){
 		well_done.play();
 		if(b!=5){
 			setTimeout(function(){
-				play = document.getElementById('audio2');
+				console.log(a);
+				play = document.getElementById(a+'1');
+				console.log(play);
 				play.play();
 			},2000);
 			start++;
@@ -511,80 +579,81 @@ $(document).ready(function load(){
     $("#blocks").hide();
 });
 
-var q,w,e,r,t;
+const answers = ['1','2','10','2','2','2'];
 
-function go(a){
-	var audio = document.getElementById('audio1');
-	audio.play();
-	var b = a+10;
-	var c = b+100;
-	var d = c+1000;
-	$('#'+a).css("background", "#E79FF1");
-	$('#'+a).css("pointer-events", "none");
-	$('#'+b).css("pointer-events", "none");
-	$('#'+c).css("pointer-events", "none");
-	$('#'+d).css("pointer-events", "none");
-	if(a==1){
-		q = 1;
-	}
-	else if (a==2){
-		w = 2;
-	}
-	else if (a==3){
-		e = 3;
-	}
-	else if (a==4){
-		r = 4;
+
+function reset() {
+	$('#submit').attr('pointer-events','auto');
+	$('#sol').attr('pointer-events','none');
+	$("input").css("color","green");
+	$("input").css("border","1px solid green");
+	
+	let size = answers.length;
+	var i=0;
+	while(i<size){
+		$('#tab'+i).val('');
+		i++;
 	}
 }
 
-function check(){
-	$("#sol").css("pointer-events", "auto");
-	if(q!=1 && w!=2 && e!=3 && r!=4 ){
-		$("#sol").css("pointer-events", "none");
-	 }
-	if(q==1 && w==2 && e==3 && r==4  ){
-	var audio = document.getElementById('audio1');
-	audio.play();
-	setInterval(function(){ 
-		 $('.main').hide(); 
-		 $('.container').hide(); 
-		 $('#blocks').show(); 
-		},500);
-		setInterval(function(){ 
-		window.location="../index.html";
-		},3000);
+function solve() {
+	$('#submit').attr('pointer-events','none');
+	$("input").css("color","green");
+	$("input").css("border","1px solid green");
+	
+	let size = answers.length;
+	var i=0;
+	while(i<size){
+		$('#tab'+i).val(answers[i]).change();
+		i++;
 	}
-	else{
-		var audio = document.getElementById('audio2');
+}
+function check() {
+	$('select').css('border','2px solid #73DAD6');
+	$("#sol").css("pointer-events", "auto");	
+	let size = answers.length;
+	var i=0;
+	var empty=0;	
+	while(i<size){
+		input_answer = $("#tab"+i).val();
+		console.log(input_answer);
+		if(input_answer=='' || input_answer==null){
+			empty++;
+		}
+		i++;
+	}
+	if(empty==size){
+		$("#sol").css("pointer-events", "none");
+	}
+	var i=0;
+	while(i<size){
+		input_answer = $("#tab"+i).val();
+		if(input_answer!=answers[i]){
+			$('#tab'+i).css("border",'2px solid red');
+		}
+		i++;
+	}
+	var i=0;
+	var correct=0;
+	while(i<size){
+		input_answer = $("#tab"+i).val();
+		if(input_answer==answers[i]){
+			correct++;
+		}
+		i++;
+	}
+	if(correct==size){
+		setTimeout(function(){
+			var audio = document.getElementById("audio1");
+			audio.play();
+			$('.main1').addClass('hidden');
+			$('.well').removeClass('hidden');
+		},1000);
+		
+	}else{
+		var audio = document.getElementById("audio2");
 		audio.play();
 	}
-}
-function to(a){
-	$('#'+a).css("background", "#E79FF1");
-}
-function solve(){
-	$("#submit").css("pointer-events", "none");
-	to(1);
-	to(2);
-	to(3);
-	to(4);
-}
-
-function bo(d){
-	if(d>1000){
-		c=d-1000;
-		b=c-100;
-		a=b-10;
-	}else{
-		c=d+1000;
-		b=c-100;
-		a=b-10;
-	}
-	var audio = document.getElementById('audio2');
-	audio.play();
-	$('#'+d).css("background", "#ff0000");
-	$('#'+d).css("color", "#fff");
 }
 
 </script>
